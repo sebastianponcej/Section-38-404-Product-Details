@@ -9,7 +9,7 @@ async function main() {
     console.log("Mongo Connection Open!!");
     mongoose.set('strictQuery', true) 
     // Mongoose.set es para evitar el warning message.
-  await mongoose.connect('mongodb://127.0.0.1:27017/farmStand');
+  await mongoose.connect('mongodb://127.0.0.1:27017/farmStand2');
 }
     
 
