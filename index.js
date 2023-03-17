@@ -16,7 +16,7 @@ async function main() {
     console.log("Mongo Connection Open!!");
     mongoose.set('strictQuery', true) 
     // Mongoose.set es para evitar el warning message.
-  await mongoose.connect('mongodb://127.0.0.1:27017/farmStand');
+  await mongoose.connect('mongodb://127.0.0.1:27017/farmStand2');
 }
 
 
@@ -37,9 +37,14 @@ app.get('/products/:id', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id)
     console.log(product);
-    res.send('details page!')
-
+    // res.send('details page!')
+    res.render('products/show', {product} )
 } )
+
+// URL (Creating a new Product)
+app.get('/products/new', (req, res) => {
+    res.render('products/new')
+})
 
 
 app.listen(3000, () => {
